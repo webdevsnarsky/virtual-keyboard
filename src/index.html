@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Virtual-Keyboard</title>
+</head>
+
+<body>
+  <main class="main">
+    <div class="container">
+      <h1 class="main__title">Virtual Keyboard</h1>
+      <div class="textarea-wrapper">
+        <textarea class="textarea" name="" id="textarea" cols="30" rows="10"></textarea>
+      </div>
+      <div class="keyboard-wrapper">
+        <div class="keyboard keyboard-style">
+          <div class="keyboard__row">
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">ё</span>
+                <span class="let-up hidden">Ё</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">`</span>
+                <span class="let-up hidden">~</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">1</span>
+                <span class="let-up hidden">!</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">1</span>
+                <span class="let-up hidden">!</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">2</span>
+                <span class="let-up hidden">"</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">2</span>
+                <span class="let-up hidden">@</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">3</span>
+                <span class="let-up hidden hidden">№</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">3</span>
+                <span class="let-up hidden">#</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">4</span>
+                <span class="let-up hidden">;</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">4</span>
+                <span class="let-up hidden">$</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">5</span>
+                <span class="let-up hidden">%</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">5</span>
+                <span class="let-up hidden">%</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">6</span>
+                <span class="let-up hidden">:</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">6</span>
+                <span class="let-up hidden">^</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">7</span>
+                <span class="let-up hidden">?</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">7</span>
+                <span class="let-up hidden">&</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">8</span>
+                <span class="let-up hidden">*</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">8</span>
+                <span class="let-up hidden">*</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">9</span>
+                <span class="let-up hidden">(</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">9</span>
+                <span class="let-up hidden">(</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">0</span>
+                <span class="let-up hidden">)</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">0</span>
+                <span class="let-up hidden">)</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">-</span>
+                <span class="let-up hidden">_</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">-</span>
+                <span class="let-up hidden">_</span>
+              </span>
+            </div>
+            <div class="keyboard__key Backspace">
+              <span class="rus hidden">
+                <span class="let-down hidden">Backspace</span>
+                <span class="let-up hidden">Backspace</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">Backspace</span>
+                <span class="let-up hidden">Backspace</span>
+              </span>
+            </div>
+
+          </div>
+          <div class="keyboard__row">
+            <div class="keyboard__key Tab">
+              <span class="rus hidden">
+                <span class="let-down hidden">Tab</span>
+                <span class="let-up hidden">Tab</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">Tab</span>
+                <span class="let-up hidden">Tab</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">й</span>
+                <span class="let-up hidden">Й</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">q</span>
+                <span class="let-up hidden">Q</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">ц</span>
+                <span class="let-up hidden">Ц</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">w</span>
+                <span class="let-up hidden">W</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">у</span>
+                <span class="let-up hidden hidden">У</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">e</span>
+                <span class="let-up hidden">E</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">к</span>
+                <span class="let-up hidden">К</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">r</span>
+                <span class="let-up hidden">R</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">е</span>
+                <span class="let-up hidden">Е</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">t</span>
+                <span class="let-up hidden">T</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">н</span>
+                <span class="let-up hidden">Н</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">y</span>
+                <span class="let-up hidden">Y</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">г</span>
+                <span class="let-up hidden">Г</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">u</span>
+                <span class="let-up hidden">U</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">ш</span>
+                <span class="let-up hidden">Ш</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">i</span>
+                <span class="let-up hidden">I</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">щ</span>
+                <span class="let-up hidden">Щ</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">o</span>
+                <span class="let-up hidden">O</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">з</span>
+                <span class="let-up hidden">З</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">p</span>
+                <span class="let-up hidden">P</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">х</span>
+                <span class="let-up hidden">Х</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">[</span>
+                <span class="let-up hidden">{</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">ъ</span>
+                <span class="let-up hidden">Ъ</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">]</span>
+                <span class="let-up hidden">}</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">\</span>
+                <span class="let-up hidden">/</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">\</span>
+                <span class="let-up hidden">|</span>
+              </span>
+            </div>
+            <div class="keyboard__key Delete">
+              <span class="rus hidden">
+                <span class="let-down hidden">Del</span>
+                <span class="let-up hidden">Del</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">Del</span>
+                <span class="let-up hidden">Del</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="keyboard__row">
+            <div class="keyboard__key CapsLock">
+              <span class="rus hidden">
+                <span class="let-down hidden">CapsLock</span>
+                <span class="let-up hidden">CapsLock</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">CapsLock</span>
+                <span class="let-up hidden">CapsLock</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">ф</span>
+                <span class="let-up hidden">Ф</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">a</span>
+                <span class="let-up hidden">A</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">ы</span>
+                <span class="let-up hidden">Ы</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">s</span>
+                <span class="let-up hidden">S</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">в</span>
+                <span class="let-up hidden">В</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">d</span>
+                <span class="let-up hidden">D</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">а</span>
+                <span class="let-up hidden">А</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">f</span>
+                <span class="let-up hidden">F</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">п</span>
+                <span class="let-up hidden">П</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">g</span>
+                <span class="let-up hidden">G</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">р</span>
+                <span class="let-up hidden">Р</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">h</span>
+                <span class="let-up hidden">H</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">о</span>
+                <span class="let-up hidden">О</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">j</span>
+                <span class="let-up hidden">J</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">л</span>
+                <span class="let-up hidden">Л</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">k</span>
+                <span class="let-up hidden">K</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">д</span>
+                <span class="let-up hidden">Д</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">l</span>
+                <span class="let-up hidden">L</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">ж</span>
+                <span class="let-up hidden">Ж</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">;</span>
+                <span class="let-up hidden">:</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">э</span>
+                <span class="let-up hidden">Э</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">'</span>
+                <span class="let-up hidden">"</span>
+              </span>
+            </div>
+            <div class="keyboard__key Enter">
+              <span class="rus hidden">
+                <span class="let-down hidden">Enter</span>
+                <span class="let-up hidden">Enter</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">Enter</span>
+                <span class="let-up hidden">Enter</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="keyboard__row">
+            <div class="keyboard__key ShiftLeft">
+              <span class="rus hidden">
+                <span class="let-down hidden">Shift</span>
+                <span class="let-up hidden">Shift</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">Shift</span>
+                <span class="let-up hidden">Shift</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">я</span>
+                <span class="let-up hidden">Я</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">z</span>
+                <span class="let-up hidden">Z</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">ч</span>
+                <span class="let-up hidden">Ч</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">x</span>
+                <span class="let-up hidden">X</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">с</span>
+                <span class="let-up hidden">С</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">c</span>
+                <span class="let-up hidden">C</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">м</span>
+                <span class="let-up hidden">М</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">v</span>
+                <span class="let-up hidden">V</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">и</span>
+                <span class="let-up hidden">И</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">b</span>
+                <span class="let-up hidden">B</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">т</span>
+                <span class="let-up hidden">Т</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">n</span>
+                <span class="let-up hidden">N</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">ь</span>
+                <span class="let-up hidden">Ь</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">m</span>
+                <span class="let-up hidden">M</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">б</span>
+                <span class="let-up hidden">Б</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">,</span>
+                <span class="let-up hidden">&#60;</span>
+              </span> </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">ю</span>
+                <span class="let-up hidden">Ю</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">.</span>
+                <span class="let-up hidden">&#60;</span>
+              </span>
+            </div>
+            <div class="keyboard__key">
+              <span class="rus hidden">
+                <span class="let-down hidden">.</span>
+                <span class="let-up hidden">,</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">/</span>
+                <span class="let-up hidden">?</span>
+              </span>
+            </div>
+            <div class="keyboard__key ArrowUp">
+              <span class="rus hidden">
+                <span class="let-down hidden">&#9650;</span>
+                <span class="let-up hidden">&#9650;</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">&#9650;</span>
+                <span class="let-up hidden">&#9650;</span>
+              </span>
+            </div>
+            <div class="keyboard__key ShiftRight">
+              <span class="rus hidden">
+                <span class="let-down hidden">Shift</span>
+                <span class="let-up hidden">Shift</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">Shift</span>
+                <span class="let-up hidden">Shift</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="keyboard__row">
+            <div class="keyboard__key ControlLeft">
+              <span class="rus hidden">
+                <span class="let-down hidden">Ctrl</span>
+                <span class="let-up hidden">Ctrl</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">Ctrl</span>
+                <span class="let-up hidden">Ctrl</span>
+              </span>
+            </div>
+            <div class="keyboard__key MetaLeft">
+              <span class="rus hidden">
+                <span class="let-down hidden">Win</span>
+                <span class="let-up hidden">Win</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">Win</span>
+                <span class="let-up hidden">Win</span>
+              </span>
+            </div>
+            <div class="keyboard__key AltLeft">
+              <span class="rus hidden">
+                <span class="let-down hidden">Alt</span>
+                <span class="let-up hidden">Alt</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">Alt</span>
+                <span class="let-up hidden">Alt</span>
+              </span>
+            </div>
+            <div class="keyboard__key Space">
+              <span class="rus hidden">
+                <span class="let-down hidden"></span>
+                <span class="let-up hidden"></span>
+              </span>
+              <span class="eng">
+                <span class="let-down"></span>
+                <span class="let-up hidden"></span>
+              </span>
+            </div>
+            <div class="keyboard__key AltRight">
+              <span class="rus hidden">
+                <span class="let-down hidden">Alt</span>
+                <span class="let-up hidden">Alt</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">Alt</span>
+                <span class="let-up hidden">Alt</span>
+              </span>
+            </div>
+            <div class="keyboard__key ArrowLeft">
+              <span class="rus hidden">
+                <span class="let-down hidden">&#9668;</span>
+                <span class="let-up hidden">&#9668;</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">&#9668;</span>
+                <span class="let-up hidden">&#9668;</span>
+              </span>
+            </div>
+            <div class="keyboard__key ArrowDown">
+              <span class="rus hidden">
+                <span class="let-down hidden">&#9660;</span>
+                <span class="let-up hidden">&#9660;</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">&#9660;</span>
+                <span class="let-up hidden">&#9660;</span>
+              </span>
+            </div>
+            <div class="keyboard__key ArrowRight">
+              <span class="rus hidden">
+                <span class="let-down hidden">&#9658;</span>
+                <span class="let-up hidden">&#9658;</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">&#9658;</span>
+                <span class="let-up hidden">&#9658;</span>
+              </span>
+            </div>
+            <div class="keyboard__key ControlRight">
+              <span class="rus hidden">
+                <span class="let-down hidden">Ctrl</span>
+                <span class="let-up hidden">Ctrl</span>
+              </span>
+              <span class="eng">
+                <span class="let-down">Ctrl</span>
+                <span class="let-up hidden">Ctrl</span>
+              </span>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
