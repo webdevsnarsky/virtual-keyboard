@@ -37,27 +37,38 @@ body {
 }
 
 .keyboard-wrapper {
-  background-color: green;
+  background: #888888;
+  border: 3px solid #222222;
   margin: 0 auto;
-  width: 80%;
-  height: 265px;
+  width: 679px;
+  /* height: 265px; */
+  border-radius: 10px;
+  padding: 0 5px;
 }
 
 .keyboard {
   width: 100%;
   height: 100%;
-  padding-top: 10px;
+  padding-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.keyboard__row {
+.keyboard__row-1,
+.keyboard__row-2,
+.keyboard__row-3,
+.keyboard__row-4 {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 10px;
   align-items: center;
+  padding: 0 10px;
 }
 
 .keyboard__key {
-  background-color: red;
+  background: #444444;
+  color: #ffffff;
   display: block;
   width: 40px;
   height: 40px;
@@ -66,18 +77,38 @@ body {
   cursor: pointer;
   user-select: none;
   line-height: 40px;
+  margin-bottom: 6px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.active {
+  transform: scale(0.85);
+}
+
+.keyboard__key:hover {
+  background-color: darkgrey;
+  color: #444444;
 }
 
 .keyboard-style .Enter {
   width: 100px;
 }
 
+.Tab {
+  width: 70px;
+}
+
 .keyboard-style .Backspace,
 .keyboard-style .CapsLock,
 .keyboard-style .ShiftLeft,
 .keyboard-style .ShiftRight {
-  width: 85px;
+  width: 100px;
 }
+
+/* .keyboard-style .ShiftLeft,
+.keyboard-style .ShiftRight {
+  width: 86px;
+} */
 
 .Space {
   width: 350px;
