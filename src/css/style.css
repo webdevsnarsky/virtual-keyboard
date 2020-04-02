@@ -1,5 +1,4 @@
 body {
-  /* background: #ffffff 100% 22% no-repeat url("../img/bgc-img.jpg"); */
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -23,7 +22,6 @@ body {
   max-width: 80%;
   max-height: 100%;
   margin: 0 auto 20px;
-
 }
 
 .textarea {
@@ -34,6 +32,7 @@ body {
   outline: none;
   font-size: 16px;
   border-radius: 10px;
+  padding: 5px;
 }
 
 .keyboard-wrapper {
@@ -41,7 +40,6 @@ body {
   border: 3px solid #222222;
   margin: 0 auto;
   width: 679px;
-  /* height: 265px; */
   border-radius: 10px;
   padding: 0 5px;
 }
@@ -87,7 +85,7 @@ body {
 
 .keyboard__key:hover {
   background-color: darkgrey;
-  color: #444444;
+  /* color: #444444; */
 }
 
 .keyboard-style .Enter {
@@ -99,20 +97,41 @@ body {
 }
 
 .keyboard-style .Backspace,
-.keyboard-style .CapsLock,
 .keyboard-style .ShiftLeft,
 .keyboard-style .ShiftRight {
   width: 100px;
 }
 
-/* .keyboard-style .ShiftLeft,
-.keyboard-style .ShiftRight {
-  width: 86px;
-} */
+.keyboard-style .CapsLock {
+  width: 85px;
+}
 
 .Space {
-  width: 350px;
+  width: 325px;
 }
+
+/* .keyboard-style .Tab,
+.keyboard-style .CapsLock,
+.keyboard-style .ShiftLeft,
+.keyboard-style .ControlLeft,
+.keyboard-style .MetaLeft,
+.keyboard-style .AltLeft,
+.keyboard-style .Space,
+.keyboard-style .AltRight,
+.keyboard-style .ArrowLeft,
+.keyboard-style .ArrowDown,
+.keyboard-style .ArrowRight,
+.keyboard-style .ControlRight,
+.keyboard-style .ShiftRight,
+.keyboard-style .ArrowUp,
+.keyboard-style .Enter,
+.keyboard-style .Delete,
+.keyboard-style .Backspace {
+  background-color: #000000;
+} */
+
+
+
 
 .hidden {
   display: none;

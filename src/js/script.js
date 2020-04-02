@@ -1,42 +1,42 @@
 const arrayOne = [
   {
-    keyCode: 192, upperEng: '~', upperRu: 'Ё', lowEng: '`', lowRu: 'ё',
+    keyCode: 192, upperEng: '~', upperRu: 'Ё', lowEng: '`', lowRu: 'ё', eventCode: 'Backquote',
   },
   {
-    keyCode: 49, upperEng: '!', upperRu: '!', lowEng: '1', lowRu: '1',
+    keyCode: 49, upperEng: '!', upperRu: '!', lowEng: '1', lowRu: '1', eventCode: 'Digit1',
   },
   {
-    keyCode: 50, upperEng: '@', upperRu: '"!"', lowEng: '2', lowRu: '2',
+    keyCode: 50, upperEng: '@', upperRu: '"!"', lowEng: '2', lowRu: '2', eventCode: 'Digit2',
   },
   {
-    keyCode: 51, upperEng: '#', upperRu: '№', lowEng: '3', lowRu: '3',
+    keyCode: 51, upperEng: '#', upperRu: '№', lowEng: '3', lowRu: '3', eventCode: 'Digit3',
   },
   {
-    keyCode: 52, upperEng: '$', upperRu: ';', lowEng: '4', lowRu: '4',
+    keyCode: 52, upperEng: '$', upperRu: ';', lowEng: '4', lowRu: '4', eventCode: 'Digit4',
   },
   {
-    keyCode: 53, upperEng: '%', upperRu: '%', lowEng: '5', lowRu: '5',
+    keyCode: 53, upperEng: '%', upperRu: '%', lowEng: '5', lowRu: '5', eventCode: 'Digit5',
   },
   {
-    keyCode: 54, upperEng: '^', upperRu: ':', lowEng: '6', lowRu: '6',
+    keyCode: 54, upperEng: '^', upperRu: ':', lowEng: '6', lowRu: '6', eventCode: 'Digit6',
   },
   {
-    keyCode: 55, upperEng: '?', upperRu: '?', lowEng: '7', lowRu: '7',
+    keyCode: 55, upperEng: '?', upperRu: '?', lowEng: '7', lowRu: '7', eventCode: 'Digit7',
   },
   {
-    keyCode: 56, upperEng: '*', upperRu: '*', lowEng: '8', lowRu: '8',
+    keyCode: 56, upperEng: '*', upperRu: '*', lowEng: '8', lowRu: '8', eventCode: 'Digit8',
   },
   {
-    keyCode: 57, upperEng: '(', upperRu: '(', lowEng: '9', lowRu: '9',
+    keyCode: 57, upperEng: '(', upperRu: '(', lowEng: '9', lowRu: '9', eventCode: 'Digit9',
   },
   {
-    keyCode: 48, upperEng: ')', upperRu: ')', lowEng: '0', lowRu: '0',
+    keyCode: 48, upperEng: ')', upperRu: ')', lowEng: '0', lowRu: '0', eventCode: 'Digit0',
   },
   {
-    keyCode: 189, upperEng: '_', upperRu: '_', lowEng: '-', lowRu: '-',
+    keyCode: 189, upperEng: '_', upperRu: '_', lowEng: '-', lowRu: '-', eventCode: 'Minus',
   },
   {
-    keyCode: 187, upperEng: '+', upperRu: '+', lowEng: '=', lowRu: '=',
+    keyCode: 187, upperEng: '+', upperRu: '+', lowEng: '=', lowRu: '=', eventCode: 'Equal',
   },
   {
     keyCode: 8, upperEng: 'Backspace', upperRu: 'Backspace', lowEng: 'Backspace', lowRu: 'Backspace', eventCode: 'Backspace',
@@ -165,6 +165,9 @@ const arrayOne = [
     keyCode: 16, upperEng: 'Shift;', upperRu: 'Shift', lowEng: 'Shift', lowRu: 'Shift', eventCode: 'ShiftRight',
   },
   {
+    keyCode: 17, upperEng: 'Ctrl;', upperRu: 'Ctrl', lowEng: 'Ctrl', lowRu: 'Ctrl', eventCode: 'ControlLeft',
+  },
+  {
     keyCode: 91, upperEng: 'Win;', upperRu: 'Win', lowEng: 'Win', lowRu: 'Win', eventCode: 'MetaLeft',
   },
   {
@@ -177,16 +180,16 @@ const arrayOne = [
     keyCode: 18, upperEng: 'Alt', upperRu: 'Alt', lowEng: 'Alt', lowRu: 'Alt', eventCode: 'AltRight',
   },
   {
-    keyCode: 18, upperEng: '&#9668;', upperRu: '&#9668;', lowEng: '&#9668;', lowRu: '&#9668;', eventCode: 'ArrowLeft',
+    keyCode: 37, upperEng: '&#9668;', upperRu: '&#9668;', lowEng: '&#9668;', lowRu: '&#9668;', eventCode: 'ArrowLeft',
   },
   {
-    keyCode: 18, upperEng: '&#9660;', upperRu: '&#9660;', lowEng: '&#9660;', lowRu: '&#9660;', eventCode: 'ArrowDown',
+    keyCode: 40, upperEng: '&#9660;', upperRu: '&#9660;', lowEng: '&#9660;', lowRu: '&#9660;', eventCode: 'ArrowDown',
   },
   {
-    keyCode: 18, upperEng: '&#9658;', upperRu: '&#9658;', lowEng: '&#9658;', lowRu: '&#9658;', eventCode: 'ArrowRight',
+    keyCode: 39, upperEng: '&#9658;', upperRu: '&#9658;', lowEng: '&#9658;', lowRu: '&#9658;', eventCode: 'ArrowRight',
   },
   {
-    keyCode: 18, upperEng: 'Ctrl', upperRu: 'Ctrl', lowEng: 'Ctrl', lowRu: 'Ctrl', eventCode: 'ControlRight',
+    keyCode: 17, upperEng: 'Ctrl', upperRu: 'Ctrl', lowEng: 'Ctrl', lowRu: 'Ctrl', eventCode: 'ControlRight',
   },
 
 
@@ -195,28 +198,54 @@ const arrayOne = [
 
 const bodyContainer = document.querySelector('body');
 
+function pressHundlerKeyboard(keyboardCont) {
+  keyboardCont.addEventListener('mousedown', (event) => {
+    const target = event.target;
+    const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
+    const textArea = document.querySelector('.textarea');
+
+    if (target.classList.contains('keyboard__key')) {
+      event.preventDefault();
+      keyOfKeyboard.forEach((item) => item.classList.remove('active'));
+      target.classList.add('active');
+      textArea.value = target.textContent;
+    }
+  });
+
+  keyboardCont.addEventListener('mouseup', () => {
+    const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
+
+    keyOfKeyboard.forEach((item) => item.classList.remove('active'));
+  });
+}
+
+
 function addBtnKeyboard() {
   const keyboardCont = document.querySelector('.keyboard');
   let res = '';
 
   arrayOne.forEach((item) => {
-    res += ` <div class="keyboard__key ${item.eventCode}">
-                <span class="rus hidden">
-                  <span class="let-down hidden">${item.lowRu}</span>
-                  <span class="let-up hidden">${item.upperRu}</span>
-                </span>
-                <span class="eng">
-                  <span class="let-down">${item.lowEng}</span>
-                  <span class="let-up hidden">${item.upperEng}</span>
-                </span>
+    res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
+                <span class="let-down">${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}</span>
               </div>`;
   });
 
+  // <span class="rus hidden">
+  //   <span class="let-down hidden">${item.lowRu}</span>
+  //   <span class="let-up hidden">${item.upperRu}</span>
+  // </span>
+  // <span class="eng">
+  //   <span class="let-up hidden">${item.upperEng}</span>
+  // </span>
+
   keyboardCont.innerHTML = res;
+  pressHundlerKeyboard(keyboardCont);
 }
 
-function addBasicMarkUp() {
-  (localStorage.lang) ? localStorage.lang = 'eng' : localStorage.lang = 'rus';
+(function addBasicMarkUp() {
+  if (localStorage.lang) {
+    localStorage.lang = 'eng';
+  }
   bodyContainer.innerHTML = `
   <main class="main">
     <div class="container">
@@ -226,18 +255,47 @@ function addBasicMarkUp() {
       </div>
       <div class="keyboard-wrapper">
         <div class="keyboard keyboard-style">
-        <div class="keyboard__row-1"></div>
-        <div class="keyboard__row-2"></div>
-        <div class="keyboard__row-3"></div>
-        <div class="keyboard__row-4"></div>
         </div>
       </div>
     </div>
   </main>`;
   addBtnKeyboard();
-}
+}());
 
 
-window.onload = () => {
-  addBasicMarkUp();
-};
+// window.onload = () => {
+//   addBasicMarkUp();
+// };
+
+
+// document.onkeypress = function (event) {
+
+
+// console.log(event.charCode);
+// }
+
+
+document.addEventListener('keydown', (event) => {
+  const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
+  const textArea = document.querySelector('.textarea');
+
+  keyOfKeyboard.forEach((item) => item.classList.remove('active'));
+  document.getElementById(event.code).classList.add('active');
+  textArea.value = document.getElementById(event.code).textContent;
+
+  if (event.code === 'ControlLeft' && event.code === 'AltLeft') {
+    localStorage.lang = 'rus';
+    addBtnKeyboard();
+  }
+});
+
+document.addEventListener('keyup', () => {
+  const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
+
+  keyOfKeyboard.forEach((item) => item.classList.remove('active'));
+  // document.getElementById(event.code).classList.add('active');
+});
+
+// window.addEventListener("unload", () => {
+
+// }
