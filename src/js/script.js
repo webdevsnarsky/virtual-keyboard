@@ -162,16 +162,16 @@ const arrayOne = [
     keyCode: 38, upperEng: '&#9650;', upperRu: '&#9650;', lowEng: '&#9650;', lowRu: '&#9650;', eventCode: 'ArrowUp',
   },
   {
-    keyCode: 16, upperEng: 'Shift;', upperRu: 'Shift', lowEng: 'Shift', lowRu: 'Shift', eventCode: 'ShiftRight',
+    keyCode: 16, upperEng: 'Shift', upperRu: 'Shift', lowEng: 'Shift', lowRu: 'Shift', eventCode: 'ShiftRight',
   },
   {
-    keyCode: 17, upperEng: 'Ctrl;', upperRu: 'Ctrl', lowEng: 'Ctrl', lowRu: 'Ctrl', eventCode: 'ControlLeft',
+    keyCode: 17, upperEng: 'Ctrl', upperRu: 'Ctrl', lowEng: 'Ctrl', lowRu: 'Ctrl', eventCode: 'ControlLeft',
   },
   {
-    keyCode: 91, upperEng: 'Win;', upperRu: 'Win', lowEng: 'Win', lowRu: 'Win', eventCode: 'MetaLeft',
+    keyCode: 91, upperEng: 'Win', upperRu: 'Win', lowEng: 'Win', lowRu: 'Win', eventCode: 'MetaLeft',
   },
   {
-    keyCode: 18, upperEng: 'Alt;', upperRu: 'Alt', lowEng: 'Alt', lowRu: 'Alt', eventCode: 'AltLeft',
+    keyCode: 18, upperEng: 'Alt', upperRu: 'Alt', lowEng: 'Alt', lowRu: 'Alt', eventCode: 'AltLeft',
   },
   {
     keyCode: 32, upperEng: '&nbsp;', upperRu: '&nbsp;', lowEng: '&nbsp;', lowRu: '&nbsp;', eventCode: 'Space',
@@ -197,6 +197,8 @@ const arrayOne = [
 
 
 const bodyContainer = document.querySelector('body');
+let upperLet;
+// const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
 
 function pressHundlerKeyboard(keyboardCont) {
   keyboardCont.addEventListener('mousedown', (event) => {
@@ -224,19 +226,27 @@ function addBtnKeyboard() {
   const keyboardCont = document.querySelector('.keyboard');
   let res = '';
 
-  arrayOne.forEach((item) => {
-    res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
-                <span class="let-down">${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}</span>
-              </div>`;
-  });
+  if (!upperLet) {
+    arrayOne.forEach((item) => {
+      res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
+                  <span>${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}</span>
+                </div>`;
+    });
+  } else {
+    arrayOne.forEach((item, i) => {
+      if (i < 14) {
+        res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
+                  <span>${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}</span>
+                </div>`;
+      } else {
+        res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
+                  <span>${(localStorage.lang === 'eng') ? item.upperEng : item.upperRu}</span>
+                </div>`;
+      }
+    });
 
-  // <span class="rus hidden">
-  //   <span class="let-down hidden">${item.lowRu}</span>
-  //   <span class="let-up hidden">${item.upperRu}</span>
-  // </span>
-  // <span class="eng">
-  //   <span class="let-up hidden">${item.upperEng}</span>
-  // </span>
+    // upperLet = false;
+  }
 
   keyboardCont.innerHTML = res;
   pressHundlerKeyboard(keyboardCont);
@@ -275,17 +285,40 @@ function addBtnKeyboard() {
 // }
 
 
-document.addEventListener('keydown', (event) => {
-  const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
-  const textArea = document.querySelector('.textarea');
-
-  keyOfKeyboard.forEach((item) => item.classList.remove('active'));
-  document.getElementById(event.code).classList.add('active');
-  textArea.value = document.getElementById(event.code).textContent;
-
-  if (event.code === 'ControlLeft' && event.code === 'AltLeft') {
+function changeLanguage() {
+  if (localStorage.lang === 'eng') {
     localStorage.lang = 'rus';
     addBtnKeyboard();
+  } else {
+    localStorage.lang = 'eng';
+    addBtnKeyboard();
+  }
+}
+
+document.addEventListener('keydown', (event) => {
+  // const ControlLeft = document.getElementById('ControlLeft');
+  const AltLeft = document.getElementById('AltLeft');
+  const ShiftLeft = document.getElementById('ShiftLeft');
+  document.getElementById(event.code).classList.add('active');
+  // textArea.value += document.getElementById(event.code).textContent;
+  // if (ShiftLeft.classList.contains('active')) {
+  //   changeUpperLanguage();
+  // }
+
+  if (ShiftLeft.classList.contains('active') && AltLeft.classList.contains('active')) {
+    changeLanguage();
+  }
+
+  switch (event.code) {
+    case 'CapsLock':
+      if (!upperLet) {
+        upperLet = true;
+      } else {
+        upperLet = false;
+      }
+      addBtnKeyboard();
+      break;
+    default:
   }
 });
 
@@ -293,9 +326,4 @@ document.addEventListener('keyup', () => {
   const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
 
   keyOfKeyboard.forEach((item) => item.classList.remove('active'));
-  // document.getElementById(event.code).classList.add('active');
 });
-
-// window.addEventListener("unload", () => {
-
-// }
