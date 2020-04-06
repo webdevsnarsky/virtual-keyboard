@@ -33,23 +33,22 @@ export default class Keyboard {
     let res = '';
     if (!this.upperLet) {
       this.keysOfData.forEach((item) => {
-        res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
-                    ${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}
-                  </div>`;
+        res += ` <div class=
+        "keyboard__key ${item.eventCode}" id="${item.eventCode}">${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}</div>`;
       });
     } else {
       this.keysOfData.forEach((item, i) => {
         if (i < 14) {
-          res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
-                      ${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}
-                  </div>`;
+          res += ` <div class=
+          "keyboard__key ${item.eventCode}" id="${item.eventCode}">${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}</div>`;
         } else {
-          res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
-                      ${(localStorage.lang === 'eng') ? item.upperEng : item.upperRu}
-                  </div>`;
+          res += ` <div class=
+          "keyboard__key ${item.eventCode}" id="${item.eventCode}">${(localStorage.lang === 'eng') ? item.upperEng : item.upperRu}</div>`;
         }
       });
     }
+
+    this.keyboardCont.innerHTML = res;
     // if (!this.upperLet) {
     //   this.keysOfData.forEach((item) => {
     //     res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
@@ -69,64 +68,80 @@ export default class Keyboard {
     //     }
     //   });
     // }
-    this.keyboardCont.innerHTML = res;
   }
 
   pressMouseHundlerKeyboard() {
     document.addEventListener('mousedown', (event) => {
+      event.preventDefault();
       const target = event.target;
-      // console.log('target: ', target);
       const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
-      // const textArea = document.querySelector('.textarea');
-      // debugger;
-      // switch (event.code) {
-      //   case 'CapsLock':
-      //     this.getUppperLetter();
-      //     break;
-      //   default:
-      // }
+      this.textArea = document.querySelector('.textarea');
+      // console.log('letTert: ', letTert);
 
       if (target.classList.contains('keyboard__key')) {
-        event.preventDefault();
+        const letTer = target.textContent;
         keyOfKeyboard.forEach((item) => item.classList.remove('active'));
         target.classList.add('active');
-        // textArea.focus();
-        // textArea.value += target.textContent;
+        this.textArea.focus();
+        this.insertLetters(event, letTer);
       }
       if (target.classList.contains('CapsLock')) {
         this.getUppperLetter();
       }
     });
 
-    document.addEventListener('mouseup', () => {
+    document.addEventListener('mouseup', (event) => {
+      event.preventDefault();
       const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
       keyOfKeyboard.forEach((item) => item.classList.remove('active'));
+    });
+
+    document.addEventListener('click', (event) => {
+      // const target = event.target;
+      // console.log('target: ', target);
+      if (event.target.classList.contains('container')) {
+        this.textArea = document.querySelector('.textarea');
+        this.textArea.blur();
+      }
+
+      if (event.target.classList.contains('textarea')) {
+        this.textArea.focus();
+      }
     });
   }
 
   pressKeyHundlerKeyboard() {
     document.addEventListener('keydown', (event) => {
+      event.preventDefault();
       const ControlLeft = document.getElementById('ControlLeft');
       const AltLeft = document.getElementById('AltLeft');
+      this.textArea = document.querySelector('.textarea');
+      const letTer = document.getElementById(event.code).textContent;
       document.getElementById(event.code).classList.add('active');
-      // textArea.value += document.getElementById(event.code).textContent;
-      // if (ShiftLeft.classList.contains('active')) {
-      //   changeUpperLanguage();
-      // }
-      if (ControlLeft.classList.contains('active') && AltLeft.classList.contains('active')) {
-        this.changeLanguage();
-      }
+      this.textArea.focus();
       switch (event.code) {
         case 'CapsLock':
           this.getUppperLetter();
           break;
+        case 'Backspace':
+        case 'Tab':
         case 'ShiftLeft':
-          this.getUppperLetter();
+        case 'ControlLeft':
+        case 'AltLeft':
+        case 'AltRight':
+        case 'ControlRight':
+        case 'Delete':
           break;
         default:
+          this.insertLetters(event, letTer);
+      }
+
+      if (ControlLeft.classList.contains('active') && AltLeft.classList.contains('active')) {
+        this.changeLanguage();
       }
     });
-    document.addEventListener('keyup', () => {
+    document.addEventListener('keyup', (event) => {
+      event.preventDefault();
       const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
       keyOfKeyboard.forEach((item) => item.classList.remove('active'));
     });
@@ -135,11 +150,10 @@ export default class Keyboard {
   changeLanguage() {
     if (localStorage.lang === 'eng') {
       localStorage.lang = 'rus';
-      this.addBtnKeyboard();
     } else {
       localStorage.lang = 'eng';
-      this.addBtnKeyboard();
     }
+    this.addBtnKeyboard();
   }
 
   getUppperLetter() {
@@ -149,5 +163,23 @@ export default class Keyboard {
       this.upperLet = false;
     }
     this.addBtnKeyboard();
+  }
+
+  insertLetters(event, letTer) {
+    this.textArea = document.querySelector('.textarea');
+    switch (letTer) {
+      case 'CapsLock':
+      case 'Delete':
+      case 'Backspace':
+      case 'Tab':
+      case 'ShiftLeft':
+      case 'ControlLeft':
+      case 'AltLeft':
+      case 'AltRight':
+      case 'ControlRight':
+        break;
+      default:
+        this.textArea.setRangeText((letTer), this.textArea.selectionStart, this.textArea.selectionEnd, 'end');
+    }
   }
 }
