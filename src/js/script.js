@@ -1,6 +1,7 @@
 export default class Keyboard {
   constructor(data) {
     this.upperLet = null;
+    this.shiftOn = null;
     this.keysOfData = data;
   }
 
@@ -21,6 +22,7 @@ export default class Keyboard {
           </div>
         </div>
         <p>Developed on Windows OS. Change language Left Ctrl + Left Alt</p>
+        <p>Also you can use Tab, Backspace, Enter, Left Shift</p>
       </div>
     </main>`;
     this.addBtnKeyboard();
@@ -31,6 +33,7 @@ export default class Keyboard {
   addBtnKeyboard() {
     this.keyboardCont = document.querySelector('.keyboard');
     let res = '';
+    this.shiftOn = false;
     if (!this.upperLet) {
       this.keysOfData.forEach((item) => {
         res += ` <div class=
@@ -49,62 +52,41 @@ export default class Keyboard {
     }
 
     this.keyboardCont.innerHTML = res;
-    // if (!this.upperLet) {
-    //   this.keysOfData.forEach((item) => {
-    //     res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
-    //                 <span>${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}</span>
-    //               </div>`;
-    //   });
-    // } else {
-    //   this.keysOfData.forEach((item, i) => {
-    //     if (i < 14) {
-    //       res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
-    //                 <span>${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}</span>
-    //               </div>`;
-    //     } else {
-    //       res += ` <div class="keyboard__key ${item.eventCode}" id="${item.eventCode}">
-    //                 <span>${(localStorage.lang === 'eng') ? item.upperEng : item.upperRu}</span>
-    //               </div>`;
-    //     }
-    //   });
-    // }
   }
 
   pressMouseHundlerKeyboard() {
+    this.textArea = document.querySelector('.textarea');
     document.addEventListener('mousedown', (event) => {
       event.preventDefault();
       const target = event.target;
       const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
-      this.textArea = document.querySelector('.textarea');
-      // console.log('letTert: ', letTert);
-
       if (target.classList.contains('keyboard__key')) {
         const letTer = target.textContent;
         keyOfKeyboard.forEach((item) => item.classList.remove('active'));
         target.classList.add('active');
-        this.textArea.focus();
         this.insertLetters(event, letTer);
-      }
-      if (target.classList.contains('CapsLock')) {
-        this.getUppperLetter();
       }
     });
 
     document.addEventListener('mouseup', (event) => {
       event.preventDefault();
+      const target = event.target;
+      if (target.classList.contains('CapsLock')) {
+        this.getUppperLetter();
+      }
       const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
       keyOfKeyboard.forEach((item) => item.classList.remove('active'));
     });
 
     document.addEventListener('click', (event) => {
-      // const target = event.target;
-      // console.log('target: ', target);
-      if (event.target.classList.contains('container')) {
+      if (!event.target.classList.contains('textarea')) {
         this.textArea = document.querySelector('.textarea');
         this.textArea.blur();
       }
 
-      if (event.target.classList.contains('textarea')) {
+      if (event.target.classList.contains('textarea')
+          || event.target.classList.contains('keyboard')
+          || event.target.classList.contains('keyboard__key')) {
         this.textArea.focus();
       }
     });
@@ -113,38 +95,58 @@ export default class Keyboard {
   pressKeyHundlerKeyboard() {
     document.addEventListener('keydown', (event) => {
       event.preventDefault();
-      const ControlLeft = document.getElementById('ControlLeft');
-      const AltLeft = document.getElementById('AltLeft');
-      this.textArea = document.querySelector('.textarea');
       const letTer = document.getElementById(event.code).textContent;
       document.getElementById(event.code).classList.add('active');
-      this.textArea.focus();
       switch (event.code) {
-        case 'CapsLock':
-          this.getUppperLetter();
-          break;
-        case 'Backspace':
-        case 'Tab':
         case 'ShiftLeft':
-        case 'ControlLeft':
-        case 'AltLeft':
-        case 'AltRight':
-        case 'ControlRight':
-        case 'Delete':
+          this.getWorkOnShift();
           break;
         default:
           this.insertLetters(event, letTer);
       }
-
-      if (ControlLeft.classList.contains('active') && AltLeft.classList.contains('active')) {
-        this.changeLanguage();
-      }
     });
     document.addEventListener('keyup', (event) => {
       event.preventDefault();
+      const ControlLeft = document.getElementById('ControlLeft');
+      const AltLeft = document.getElementById('AltLeft');
+      if (ControlLeft.classList.contains('active') && AltLeft.classList.contains('active')) {
+        this.changeLanguage();
+      }
+      switch (event.code) {
+        case 'ShiftLeft':
+          this.getWorkOnShift();
+          break;
+        case 'CapsLock':
+          this.getUppperLetter();
+          break;
+        default:
+      }
       const keyOfKeyboard = document.querySelectorAll('.keyboard__key');
       keyOfKeyboard.forEach((item) => item.classList.remove('active'));
     });
+  }
+
+  getWorkOnShift() {
+    if (!this.shiftOn) {
+      this.shiftOn = true;
+    } else {
+      this.shiftOn = false;
+    }
+
+    this.keyboardCont = document.querySelector('.keyboard');
+    let res = '';
+    if (this.shiftOn) {
+      this.keysOfData.forEach((item) => {
+        res += ` <div class=
+        "keyboard__key ${item.eventCode}" id="${item.eventCode}">${(localStorage.lang === 'eng') ? item.upperEng : item.upperRu}</div>`;
+      });
+    } else {
+      this.keysOfData.forEach((item) => {
+        res += ` <div class=
+          "keyboard__key ${item.eventCode}" id="${item.eventCode}">${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}</div>`;
+      });
+    }
+    this.keyboardCont.innerHTML = res;
   }
 
   changeLanguage() {
@@ -168,18 +170,31 @@ export default class Keyboard {
   insertLetters(event, letTer) {
     this.textArea = document.querySelector('.textarea');
     switch (letTer) {
-      case 'CapsLock':
-      case 'Delete':
       case 'Backspace':
+        this.textArea.value = this.textArea.value.slice(0, -1);
+        break;
       case 'Tab':
-      case 'ShiftLeft':
-      case 'ControlLeft':
-      case 'AltLeft':
-      case 'AltRight':
-      case 'ControlRight':
+        letTer = '   ';
+        this.insertLetters(event, letTer);
+        break;
+      case 'Enter':
+        letTer = '\n';
+        this.insertLetters(event, letTer);
+        break;
+      case 'CapsLock':
+      case 'Shift':
+      case 'Del':
+      case 'Ctrl':
+      case 'Alt':
+      case 'Win':
+      case '▲':
+      case '▼':
+      case '►':
+      case '◄':
         break;
       default:
-        this.textArea.setRangeText((letTer), this.textArea.selectionStart, this.textArea.selectionEnd, 'end');
+        this.textArea.setRangeText(letTer, this.textArea.selectionStart, this.textArea.selectionEnd, 'end');
+        this.textArea.focus();
     }
   }
 }
