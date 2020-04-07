@@ -7,9 +7,6 @@ export default class Keyboard {
 
   addBasicMarkUp() {
     const bodyContainer = document.querySelector('body');
-    if (localStorage.lang) {
-      localStorage.lang = 'eng';
-    }
     bodyContainer.innerHTML = `
     <main class="main">
       <div class="container">
@@ -88,6 +85,14 @@ export default class Keyboard {
           || event.target.classList.contains('keyboard')
           || event.target.classList.contains('keyboard__key')) {
         this.textArea.focus();
+      }
+    });
+
+    window.addEventListener('unload', () => {
+      if (localStorage.lang === 'eng') {
+        localStorage.lang = 'eng';
+      } else {
+        localStorage.lang = 'rus';
       }
     });
   }
