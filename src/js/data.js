@@ -6,7 +6,7 @@ const ARRAY_ONE = [
     keyCode: 49, upperEng: '!', upperRu: '!', lowEng: '1', lowRu: '1', eventCode: 'Digit1',
   },
   {
-    keyCode: 50, upperEng: '@', upperRu: '"!"', lowEng: '2', lowRu: '2', eventCode: 'Digit2',
+    keyCode: 50, upperEng: '@', upperRu: '"', lowEng: '2', lowRu: '2', eventCode: 'Digit2',
   },
   {
     keyCode: 51, upperEng: '#', upperRu: '№', lowEng: '3', lowRu: '3', eventCode: 'Digit3',

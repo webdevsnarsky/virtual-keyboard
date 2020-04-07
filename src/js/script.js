@@ -33,8 +33,8 @@ export default class Keyboard {
   addBtnKeyboard() {
     this.keyboardCont = document.querySelector('.keyboard');
     let res = '';
-    this.shiftOn = false;
     if (!this.upperLet) {
+      this.shiftOn = false;
       this.keysOfData.forEach((item) => {
         res += ` <div class=
         "keyboard__key ${item.eventCode}" id="${item.eventCode}">${(localStorage.lang === 'eng') ? item.lowEng : item.lowRu}</div>`;
